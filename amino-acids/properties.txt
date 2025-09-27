@@ -1,0 +1,22 @@
+amino acid (3l);amino acid (1l);full name;    polarity;charge;genetic code
+;               str;            str;          bool;    int;   str
+ala;            A;              Alanine;      0;       0;     GCN
+arg;            R;              Arginine;     1;       1;     MGR,CGY
+asn;            N;              Asparagine;   1;       0;     AAY
+asp;            D;              Aspartate;    1;       -1;    GAY
+cys;            C;              Cysteine;     1;       0;     UGY
+gln;            Q;              Glutamine;    1;       0;     CAR
+glu;            E;              Glutamate;    1;       -1;    GAR
+gly;            G;              Glycine;      0;       0;     GGN
+his;            H;              Histidine;    1;       0;     CAY
+ile;            I;              Isoleucine;   0;       0;     AUH
+leu;            L;              Leucine;      0;       0;     YUR,CUY
+lys;            K;              Lysine;       1;       1;     AAR
+met;            M;              Methionine;   0;       0;     AUG
+phe;            F;              Phenylalanine;0;       0;     UUY
+pro;            P;              Proline;      0;       0;     CCN
+ser;            S;              Serine;       1;       0;     UCN,AGY
+thr;            T;              Threonine;    1;       0;     ACN
+trp;            W;              Tryptophan;   0;       0;     UGG
+tyr;            Y;              Tyrosine;     1;       0;     UAY
+val;            V;              Valine;       0;       0;     GUN

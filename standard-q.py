@@ -32,6 +32,22 @@ def attempt_convert(s):
         
 def input_matches(ans):
     dt=type(ans)
+    if dt==set:
+        x=input()
+        st=[]
+        for i in x:
+            if i in ",;|:.":
+                st.append('')
+            else:
+                st[-1]+=i
+        st=[i.strip() for i in st if len(i)]
+        if (set(i)==ans):
+            print("✅")
+        else:
+            print(f"Correct answer: {ans}")
+            print("Is your answer close enough? [Y/N]")
+            print("✅" if valid_yn() else "❌")
+        return
     x=valid_intype(dt)
     if dt==int:
         print("✅" if dt==x else "❌")
@@ -119,17 +135,4 @@ class prop_keys_gen():
         ri=randrange(0,self.np)
         rq=choice(self.qs[ri].keys())
         print(f"What {self.vt}(s) have {self.pp} equal to {rq}? ({len(self.qs[ri][rq])} answers)")
-        x=input()
-        st=[]
-        for i in x:
-            if i in ",;|:.":
-                st.append('')
-            else:
-                st[-1]+=i
-        st=[i.strip() for i in st if len(i)]
-        if (set(i)==self.qs[rq]):
-            print("✅")
-        else:
-            print(f"Correct answer: {self.qs[rq]}")
-            print("Is your answer close enough? [Y/N]")
-            print("✅" if valid_yn() else "❌")
+        input_matches(self.qs[rq])

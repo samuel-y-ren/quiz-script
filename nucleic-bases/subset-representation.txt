@@ -1,0 +1,18 @@
+nucleotide symbol;full name; bases represented;complement
+;                 str;       set;              str
+A;                Adenine;   A;                T
+C;                Cytosine;  C;                G
+G;                Guanine;   G;                C
+T;                Thymine;   T;                A
+U;                Uracil;    U;                A
+W;                Weak;      A,T;              W
+S;                Strong;    C,G;              S
+M;                Amino;     A,C;              K
+K;                Ketone;    G,T;              M
+R;                Purine;    A,G;              Y
+Y;                Pyrimidine;C,T;              R
+B;                Not A;     C,G,T;            V
+D;                Not C;     A,G,T;            H
+H;                Not G;     A,C,T;            D
+V;                Not T;     A,C,G;            B
+N;                Any;       A,C,G,T;          N
