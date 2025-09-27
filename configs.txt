@@ -1,0 +1,8 @@
+[SETTINGS]
+weighting=size
+
+[CATEGORIES]
+nucleic-bases=nucleic-bases/subset-representation.txt
+[GENERATORS]
+nucleic-bases=key-prop
+[WEIGHTS]

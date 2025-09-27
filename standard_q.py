@@ -29,19 +29,24 @@ def attempt_convert(s):
             return float(s)
         except:
             return s
-        
+
+def cs_set(s):
+    st=['']
+    for i in s:
+        if i in ",;|:.":
+            st.append('')
+        else:
+            st[-1]+=i
+    return set([i.strip() for i in st if len(i)])
+
+def lowered(st):
+    return {i.lower() if type(i)==str else i for i in st}
+
 def input_matches(ans):
     dt=type(ans)
     if dt==set:
-        x=input()
-        st=[]
-        for i in x:
-            if i in ",;|:.":
-                st.append('')
-            else:
-                st[-1]+=i
-        st=[i.strip() for i in st if len(i)]
-        if (set(i)==ans):
+        x=cs_set(input())
+        if (lowered(x)==lowered(ans)):
             print("✅")
         else:
             print(f"Correct answer: {ans}")
@@ -53,68 +58,54 @@ def input_matches(ans):
         print("✅" if dt==x else "❌")
     elif dt==float:
         print("✅" if abs(1-dt/x)<1e-6 else "❌")
-    elif dt==str:
+    elif dt==str and x.lower()==ans.lower():
         print("✅")
         return
     print("Correct answer:",ans)
     print("Is your answer close enough? [Y/N]")
     print("✅" if valid_yn() else "❌")
-        
-# unique keys map to definitions
-# gives definition and asks for key
-class def_key_gen():
-    def __init__(self, vals, atp="definition"):
-        self.atp=atp
-        self.nq=len(vals)-1
-        self.v=deepcopy(vals)
-        for i in range(1,self.nq+1):
-            assert type(self.v[i][1] in (str, int, float))
-            self.v[i][1]=attempt_convert(self.v[i][1])
-        self.ri=-1
-    def next_q(self):
-        self.ri=randrange(0,self.l)
-        cv=self.v[self.ri]
-        print(f"What is the {self.atp} of {cv[0]}?")
-        input_matches(cv[1])
 
-class key_def_gen():
-    def __init__(self, vals):
-        self.nq=len(vals)
-        self.v=vals
-        for i in range(self.nq):
-            assert type(self.v[i][1] in (str, int, float))
-            self.v[i][1]=attempt_convert(self.v[i][1])
-            self.v[i][0]=self.v[i][0].lower()
-        self.ri=-1
-    def next_q(self):
-        self.ri=randrange(0,self.l)
-        cv=self.v[self.ri]
-        if (type(cv[1])==str):
-            print("What fits the description: "+cv[1]+'?')
-        else:
-            print("What has the value of: "+cv[0]+'?')
-        input_matches(cv[0])
+def load_prop_table(file_name):
+    f=open(file_name,'r')
+    val=f.read().split('\n')
+    f.close()
+    val=[[j.strip() for j in i.split(';')] for i in val]
+    for i in range(1,len(val[0])):
+        match val[1][i]:
+            case "set":
+                for j in range(2,len(val)):
+                    val[j][i]=cs_set(val[j][i])
+            case "int":
+                for j in range(2,len(val)):
+                    val[j][i]=int(val[j][i])
+            case "float":
+                for j in range(2,len(val)):
+                    val[j][i]=float(val[j][i])
+    return [i for i in val if len(i)]
 
 # asks about a random property of an object
 class key_prop_gen():
-    def __init__(self, vals): # first line is titles, second is type of answer
-        self.v=vals
-        self.ni=len(vals)-2
-        self.np=len(vals[0])-1
-        self.nq=self.ni*self.nq
-        for i in range(1,self.np+1):
-            if self.v[1][i]=="str":
-                for j in range(2,self.ni+2):
-                    self.v[i][j]=self.v[i][j].lower()
+    def __init__(self, file_name): # first line is titles, second is type of answer
+        self.v=load_prop_table(file_name)
+        self.ni=len(self.v)-2
+        self.np=len(self.v[0])-1
+        self.nq=self.ni*self.np
     def next_q(self):
         ri=randrange(2,self.ni+2)
         rp=randrange(1,self.np+1)
-        print(f"Is the {self.v[0][0]} {self.v[ri][0]} {self.v[0][rp]}?" + ("(Y/N)" if self.v[1][rp]=="bool" else self.v[1][rp]))
+        match self.v[1][rp]:
+            case "bool":
+                print(f"Is the {self.v[0][0]} {self.v[ri][0]} {self.v[0][rp]}? (Y/N)")
+            case "set":
+                print(f"What are the {self.v[0][rp]} of the {self.v[0][0]} {self.v[ri][0]}? ({len(self.v[ri][rp])})")
+            case _:
+                print(f"What is the {self.v[0][rp]} of the {self.v[0][0]} {self.v[ri][0]}? ({self.v[1][rp]})")
         input_matches(self.v[ri][rp])
             
 # given a property, ask about all the objects that fall into it
 class prop_keys_gen():
-    def __init__(self, vals): # first line is titles, second is type opf property
+    def __init__(self, file_name): # first line is titles, second is type opf property
+        vals=load_prop_table(file_name)
         self.np=len(vals[0])-1
         self.ni=len(vals)-2
         self.vt=vals[0][0]
