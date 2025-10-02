@@ -1,8 +1,17 @@
+# weighting by "size" or "auto" weights categories by number of questions
+# "custom" uses custom weights
 [SETTINGS]
 weighting=size
 
 [CATEGORIES]
-nucleic-bases=nucleic-bases/subset-representation.txt
+nucleic-bases=nucleic-bases/subset-representation
+
 [GENERATORS]
 nucleic-bases=key-prop
+
 [WEIGHTS]
+
+### below are options for each category
+[nucleic-bases]
+weighting=1
+correction=0

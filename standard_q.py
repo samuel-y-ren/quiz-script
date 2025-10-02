@@ -1,6 +1,7 @@
 # these are standard functions to create questions for
 from random import randrange, choice
 from copy import deepcopy
+import numpy as np
 
 def valid_yn() -> bool:
     while True:
@@ -42,28 +43,32 @@ def cs_set(s):
 def lowered(st):
     return {i.lower() if type(i)==str else i for i in st}
 
-def input_matches(ans):
+def input_matches(ans, correction=True):
     dt=type(ans)
     if dt==set:
         x=cs_set(input())
         if (lowered(x)==lowered(ans)):
             print("✅")
-        else:
+        elif correction:
             print(f"Correct answer: {ans}")
             print("Is your answer close enough? [Y/N]")
             print("✅" if valid_yn() else "❌")
+        else:
+            print(f"❌\nCorrect answer: {ans}")
         return
     x=valid_intype(dt)
     if dt==int:
-        print("✅" if dt==x else "❌")
+        print("✅" if dt==x else f"❌\nCorrect answer: {ans}")
     elif dt==float:
-        print("✅" if abs(1-dt/x)<1e-6 else "❌")
+        print("✅" if abs(1-dt/x)<1e-6 else f"❌\nCorrect answer: {ans}")
     elif dt==str and x.lower()==ans.lower():
         print("✅")
-        return
-    print("Correct answer:",ans)
-    print("Is your answer close enough? [Y/N]")
-    print("✅" if valid_yn() else "❌")
+    elif correction:
+        print("Correct answer:",ans)
+        print("Is your answer close enough? [Y/N]")
+        print("✅" if valid_yn() else "❌")
+    else:
+        print(f"❌\nCorrect answer: {ans}")
 
 def load_prop_table(file_name):
     f=open(file_name,'r')
@@ -83,16 +88,29 @@ def load_prop_table(file_name):
                     val[j][i]=float(val[j][i])
     return [i for i in val if len(i)]
 
+def load_weights(file_name):
+    f=open(file_name,'r')
+    wg=f.read().split('\n')
+    f.close()
+    wg=list(map(float,[j.strip() for i in wg for j in i.split(';')]))
+    sm=sum(wg)
+    return [i/sm for i in wg]
+
+def to_bool(s):
+    return s in ('1','true','True')
+
 # asks about a random property of an object
 class key_prop_gen():
-    def __init__(self, file_name): # first line is titles, second is type of answer
-        self.v=load_prop_table(file_name)
+    def __init__(self, file_name, **kw): # first line is titles, second is type of answer
+        self.v=load_prop_table(file_name+".txt")
         self.ni=len(self.v)-2
         self.np=len(self.v[0])-1
         self.nq=self.ni*self.np
+        self.p=load_weights(file_name+"-weights.txt")
+        self.correction=(not "correction" in kw or to_bool(kw["correction"]))
     def next_q(self):
-        ri=randrange(2,self.ni+2)
-        rp=randrange(1,self.np+1)
+        ci=np.random.choice(self.nq,p=self.p)
+        ri,rp=ci//self.np+2,ci%self.np+1
         match self.v[1][rp]:
             case "bool":
                 print(f"Is the {self.v[0][0]} {self.v[ri][0]} {self.v[0][rp]}? (Y/N)")
@@ -100,12 +118,12 @@ class key_prop_gen():
                 print(f"What are the {self.v[0][rp]} of the {self.v[0][0]} {self.v[ri][0]}? ({len(self.v[ri][rp])})")
             case _:
                 print(f"What is the {self.v[0][rp]} of the {self.v[0][0]} {self.v[ri][0]}? ({self.v[1][rp]})")
-        input_matches(self.v[ri][rp])
+        input_matches(self.v[ri][rp], correction=self.correction)
             
 # given a property, ask about all the objects that fall into it
 class prop_keys_gen():
     def __init__(self, file_name): # first line is titles, second is type opf property
-        vals=load_prop_table(file_name)
+        vals=load_prop_table(file_name+".txt")
         self.np=len(vals[0])-1
         self.ni=len(vals)-2
         self.vt=vals[0][0]
