@@ -11,11 +11,15 @@ configs.read("configs.txt")
 categories=dict(configs["CATEGORIES"].items()).keys()
 generators=[gen_key[configs["GENERATORS"][i]](configs["CATEGORIES"][i], **configs[i]) for i in categories]
 weights=[]
-if configs["SETTINGS"]["weighting"] in ("size", "auto"):
+weighting_setting=configs["SETTINGS"]["weighting"].lower()
+if weighting_setting in ("size", "auto"):
     weights=[i.nq for i in generators]
-else:
+elif weighting_setting in ("equal", "auto"):
     weights=[1 for i in generators]
+else:
+    weights=[float(configs["WEIGHTS"][i]) for i in categories]
 t=sum(weights)
 weights=[i/t for i in weights]
+print(weights)
 for i in range(num_questions):
     np.random.choice(generators,p=weights).next_q()

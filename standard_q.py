@@ -92,7 +92,7 @@ def load_weights(file_name):
     f=open(file_name,'r')
     wg=f.read().split('\n')
     f.close()
-    wg=list(map(float,[j.strip() for i in wg for j in i.split(';')]))
+    wg=list(map(float,[j.strip() for i in wg for j in i.split(';') if len(j.strip())]))
     sm=sum(wg)
     return [i/sm for i in wg]
 

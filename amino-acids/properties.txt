@@ -1,4 +1,4 @@
-amino acid (3l);amino acid (1l);full name;    polarity;charge;genetic code
+amino acid;1l abbreviation;full name;    polarity;charge;genetic code
 ;               str;            str;          bool;    int;   str
 ala;            A;              Alanine;      0;       0;     GCN
 arg;            R;              Arginine;     1;       1;     MGR,CGY

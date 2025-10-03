@@ -1,17 +1,24 @@
 # weighting by "size" or "auto" weights categories by number of questions
 # "custom" uses custom weights
 [SETTINGS]
-weighting=size
+weighting=custom
 
 [CATEGORIES]
 nucleic-bases=nucleic-bases/subset-representation
+amino-acids=amino-acids/properties
 
 [GENERATORS]
 nucleic-bases=key-prop
+amino-acids=key-prop
 
 [WEIGHTS]
+nucleic-bases=1
+amino-acids=4
 
 ### below are options for each category
 [nucleic-bases]
+weighting=1
+correction=0
+[amino-acids]
 weighting=1
 correction=0
