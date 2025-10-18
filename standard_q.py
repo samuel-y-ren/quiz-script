@@ -58,9 +58,9 @@ def input_matches(ans, correction=True):
         return
     x=valid_intype(dt)
     if dt==int:
-        print("✅" if dt==x else f"❌\nCorrect answer: {ans}")
+        print("✅" if ans==x else f"❌\nCorrect answer: {ans}")
     elif dt==float:
-        print("✅" if abs(1-dt/x)<1e-6 else f"❌\nCorrect answer: {ans}")
+        print("✅" if abs(1-ans/x)<1e-6 else f"❌\nCorrect answer: {ans}")
     elif dt==str and x.lower()==ans.lower():
         print("✅")
     elif correction:
@@ -86,6 +86,9 @@ def load_prop_table(file_name):
             case "float":
                 for j in range(2,len(val)):
                     val[j][i]=float(val[j][i])
+            case "bool":
+                for j in range(2,len(val)):
+                    val[j][i]="ny"[int(val[j][i])]
     return [i for i in val if len(i)]
 
 def load_weights(file_name):

@@ -20,6 +20,5 @@ else:
     weights=[float(configs["WEIGHTS"][i]) for i in categories]
 t=sum(weights)
 weights=[i/t for i in weights]
-print(weights)
 for i in range(num_questions):
     np.random.choice(generators,p=weights).next_q()
