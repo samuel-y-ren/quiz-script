@@ -1,0 +1,16 @@
+name;def
+str;str
+substitution defect;     one atom in lattice switched
+interstitial defect;     extra atom wedged in
+self-interstitial defect;extra atom wedged in (same type)
+vacancy defect;          atom missing
+schottky defect;         missing both types in ionic solid for charge
+frenkel defect;          moved one type in ionic solid (interstitial+vacancy)
+line defect;             a line of extra atoms, where shear slip will happen (extra line bonds, next one over becomes extra)
+planar defect;           planes betwen different crystals at different orientations
+point coords;            x,y,z
+direction coords;        [x,y,z]  
+plane coords;             <x,y,z>
+direction family coords; (x,y,z)
+plane family coords;     {x,y,z}
+plane spacing for cubic; a*(x^-2+y^-2+z^-2)^-1/2, never explained

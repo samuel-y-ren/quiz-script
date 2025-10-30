@@ -1,0 +1,16 @@
+name;                        def
+str;                         str
+chromosome;                  packages of dna in long strips
+nucleus;                     contains nucleolus and dna, with nuclear envelope made of two membranes with nuclear pores and ribosomes on the outside
+nucleolus;                   does ribosome biogenesis (makes them)
+golgi apparatus;             sorting, packaging, processing proteins
+lysosome;                    vary in size and shape to break down molecules
+mitochrondrion;              takes glucose and stuff and gives out adenosine triphosphate
+plasma membrane;             aka cell membrane, composed of lipid bilayer (phospholipids + glycolipids) that separates cell from not cell
+ribosome;                    takes mrna and synthesizes proteins with codons of 3 bases
+rough endoplasmic reticulum; creation and transportation of proteins, typically on nucleus
+smooth endoplasmic recutulum;synthesizes lipids, phospholipids, and steroid, abundant in testes, ovaries
+cytosol;                     (cyto-solution, cyto means body) liquid which everything floats in, cytoplasm contains organelles too
+chloroplast;                 photosynthesizes
+cytoskeleton;                a network of proteins (microfilament (7nm), itermediate filament (10nm), microtubule (25nm)) holding together nucleus, membrane, etc. 
+centrosome;                  organizes microtubules in one hub

@@ -1,0 +1,9 @@
+name;               def
+str;                str
+allele;             aka gene, genetic information for a trait
+mendel's first law; aka law of dominance, dominant genotypes will be expressed over recessive
+mendel's second law;aka law of independent assortment, different allele inheritance probabilities are independent
+mendel's third law; aka law of segregation, one allele from each parent at random from their two
+pedigree;           family tree for determining trait properties, square male circle female
+autosomal;          not relating to x/y chromosome 
+x/y-linked;         linked to x/y-chromosome

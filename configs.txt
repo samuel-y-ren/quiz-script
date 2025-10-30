@@ -4,16 +4,25 @@
 weighting=custom
 
 [CATEGORIES]
-nucleic-bases=nucleic-bases/subset-representation
-amino-acids=amino-acids/properties
+nucleic-bases=bio/nucleic-base-rep
+amino-acids=bio/amino-acid-prop
+mit-mei=bio/mitosis-meiosis
+inher=bio/inheritance
+repl=bio/dna-repl
 
 [GENERATORS]
 nucleic-bases=key-prop
 amino-acids=key-prop
+mit-mei=def
+inher=def
+repl=key-prop
 
 [WEIGHTS]
-nucleic-bases=1
-amino-acids=4
+nucleic-bases=3
+amino-acids=3
+mit-mei=1
+inher=2
+repl=3
 
 ### below are options for each category
 [nucleic-bases]
@@ -21,4 +30,8 @@ weighting=1
 correction=0
 [amino-acids]
 weighting=1
+correction=0
+[mit-mei]
+[inher]
+[repl]
 correction=0

@@ -1,0 +1,14 @@
+name;def
+str;str
+interphase;period in which no splitting is happening
+g0;ground state of cells
+g1;growth phase 1, organelles duplicating (no chromosomes)
+s;synthesis phase, chromosones duplicating
+g2;cell continues growth, chromosomes checked
+mitosis prophase;mitotic spindles begin to form, nucleoleus dissolves, chromosomes condense, nucleus dissolves
+mitotic spindle; fibers that will organize chromosomes in mitosis
+mitosis metaphase;chromosomes align on metaphase plate (plane dividing cell), each pair is attached to one side
+mitosis anaphase;chromatid pairs split to two sides, cell starts to elongate
+mitosis telophase;cell is almost done dividing, nucleus and nuceloleus start to reform, chromosomes begin to dissolve
+gametes;sex cells with half chromosomes (pairs)
+meiosis differences;two cycles where there's crossing over from two pairs of sister chromatids (other chromasome) then two rounds of division

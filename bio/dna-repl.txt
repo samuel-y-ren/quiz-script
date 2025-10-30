@@ -1,0 +1,5 @@
+process;            done by;       start signal;         stop signal;             template;direction;monomers;   direction of polymerization;base-pairing between
+str;                str;           str;                  set;                     str;     str;      set;        str;                        str
+DNA replication;    DNA Polymerase;Origin of Replication;none;                    DNA;     3'-5';    A,C,T,G;    5'-3';                      DNA/DNA
+mRNA transcription; RNA Polymerase;promoter;             transcription terminator;DNA;     3'-5';    A,C,U,G;    5'-3';                      DNA/RNA
+protein translation;Ribosome;      AUG;                  UAA,UAG,UGA;             mRNA;    5'-3';    amino acids;NH3-COOH;                   tRNA/mRNA

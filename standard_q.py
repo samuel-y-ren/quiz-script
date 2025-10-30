@@ -74,7 +74,7 @@ def load_prop_table(file_name):
     f=open(file_name,'r')
     val=f.read().split('\n')
     f.close()
-    val=[[j.strip() for j in i.split(';')] for i in val]
+    val=[[j.strip() for j in i.split(';')] for i in val if len(i)]
     for i in range(1,len(val[0])):
         match val[1][i]:
             case "set":
@@ -102,6 +102,17 @@ def load_weights(file_name):
 def to_bool(s):
     return s in ('1','true','True')
 
+class def_gen() :
+    def __init__(self, file_name):
+        self.v=load_prop_table(file_name+".txt")[2:]
+        self.ni=self.nq=len(self.v)
+        self.p=load_weights(file_name+"-w.txt")
+    def next_q(self):
+        ci=np.random.choice(self.nq,p=self.p)
+        print(self.v[ci][0])
+        input()
+        print(self.v[ci][1]+"\n\n")
+
 # asks about a random property of an object
 class key_prop_gen():
     def __init__(self, file_name, **kw): # first line is titles, second is type of answer
@@ -109,18 +120,13 @@ class key_prop_gen():
         self.ni=len(self.v)-2
         self.np=len(self.v[0])-1
         self.nq=self.ni*self.np
-        self.p=load_weights(file_name+"-weights.txt")
+        self.p=load_weights(file_name+"-w.txt")
         self.correction=(not "correction" in kw or to_bool(kw["correction"]))
     def next_q(self):
         ci=np.random.choice(self.nq,p=self.p)
         ri,rp=ci//self.np+2,ci%self.np+1
-        match self.v[1][rp]:
-            case "bool":
-                print(f"Is the {self.v[0][0]} {self.v[ri][0]} {self.v[0][rp]}? (Y/N)")
-            case "set":
-                print(f"What are the {self.v[0][rp]} of the {self.v[0][0]} {self.v[ri][0]}? ({len(self.v[ri][rp])})")
-            case _:
-                print(f"What is the {self.v[0][rp]} of the {self.v[0][0]} {self.v[ri][0]}? ({self.v[1][rp]})")
+        print(f"{self.v[0][0]}:    {self.v[0][rp]}")
+        print(self.v[ri][0])
         input_matches(self.v[ri][rp], correction=self.correction)
             
 # given a property, ask about all the objects that fall into it

@@ -1,8 +1,8 @@
 import sys
-from standard_q import key_prop_gen, prop_keys_gen
+from standard_q import key_prop_gen, prop_keys_gen, def_gen
 from configparser import ConfigParser
 import numpy as np
-gen_key={"key-prop":key_prop_gen, "prop-keys":prop_keys_gen}
+gen_key={"key-prop":key_prop_gen, "prop-keys":prop_keys_gen, "def":def_gen}
 num_questions=10
 if len(sys.argv)>1:
     num_questions=int(sys.argv[1])
