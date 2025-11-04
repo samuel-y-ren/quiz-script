@@ -1,0 +1,8 @@
+term;               def
+str;                str
+codon;              three dna bases corresponding to an amino acid
+point mutation;     one single base pair changed, affecting one codon (silent,missense,nonsense)
+silent mutation;    codon mutates but same amino acid
+missense mutation;  codon mutates into one for diff amino acid
+nonsense mutation;  codon mutates into stop
+frameshift mutation;insertion/deletion (misaligns every codon)
