@@ -9,6 +9,9 @@ amino-acids=bio/amino-acid-prop
 mit-mei=bio/mitosis-meiosis
 inher=bio/inheritance
 repl=bio/dna-repl
+org=bio/organelles
+prot=bio/protein
+bio-misc=bio/misc
 
 [GENERATORS]
 nucleic-bases=key-prop
@@ -16,6 +19,9 @@ amino-acids=key-prop
 mit-mei=def
 inher=def
 repl=key-prop
+org=def
+prot=key-prop
+bio-misc=def
 
 [WEIGHTS]
 nucleic-bases=3
@@ -23,6 +29,9 @@ amino-acids=3
 mit-mei=1
 inher=2
 repl=3
+org=2
+prot=1
+bio-misc=5
 
 ### below are options for each category
 [nucleic-bases]
@@ -35,3 +44,6 @@ correction=0
 [inher]
 [repl]
 correction=0
+[org]
+[prot]
+[bio-misc]

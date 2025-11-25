@@ -1,0 +1,24 @@
+word;def
+str;str
+repressor;represses gene expression by binding to the operator, blocking the promoter under certain conditions, released by inducer. acts in trans, meaning repressors from both alleles affect both alleles
+operator;repressor binds on here to inhibit promoter. acts in cis, meaning an operator on one allele only affects this one pathway
+secretory protein;protein begins with N-terminal/signal sequence which is recognizde by a signal recognition particle (SRP), which transports it to the ER. the protein gets produced into the ER (signal seq removed) then transported to Golgi and vesicles to outside the cell. signal sequence can be added to any protein
+protein domain;self-contained section of a protein lightly connected to other sections
+transmembrane domain;protein domain which anchors a protein in the membrane (used in plasma membrane proteins)
+plasma membrane protein;type of secretory protein which gets anchored in the membrane by a transmembrane domain
+recombinant dna;use specific proteins to cut dna at markers, which get recombined in cell. different combinations of dna result
+polymerase chain reaction;repeated cycles of doubling a specific dna sequence. primers are fabricated on 3' ends of both strands, then repeated strand seeparation -> polymerase replication happens. vast majority of resulting doubling (20-40 times) are exactly the target sequence.
+agarose gel electrophoresis;electric field + gel moves dna down gel at different rates (larger -> slower) to detect lengths of dna sequences after processing, used in forensics
+chemical signal;a signal in indicated by the presence of chemicals
+physical signal;a signal indicated by environment (voltage, pressure, etc.)
+signal transduction;transmission of chemical or physical signals from outside to inside a cell, typically by receptors trigerring cascades. three types: amplification, interaction, modulation
+hydrolysis;water molecule breaks ?-O bond into ?-OH + H-O... takes water to break bond
+gdp/gtp;act as binary info (hydrolysis gtp -> gdp). gdp inactive, gtp active
+G protein-coupled receptros;a receptor recognizes a ligand then uses GTP to activate a G molecule to regulate process
+G protein;inactive G protein activated by an GTP causes Gα to disconnect, opening Gβ, Gγ.
+cAMP;derivative of ATP used for signaling
+Ames test;uses bacteria unable to synthesize histidine, exposes a group to some possible carcinogen, then looks at whether there are many surviving colonies to assess mutation rate (compare to control), which is technically a mutagen, a subset of carcinogens
+oncogene;gene that has the potential to cause cancer through mutation or misregulation
+proto-oncogene;type of oncogene that promotes cell growth and division, becomes activated by overexpressed
+epidermal growth factor receptor;type of receptor that induces cell division from external factors.
+retinoblastoma/rb;a protein/gene that regulates cancer by inhibiting cell cycle until done

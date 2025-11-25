@@ -14,3 +14,4 @@ cytosol;                     (cyto-solution, cyto means body) liquid which every
 chloroplast;                 photosynthesizes
 cytoskeleton;                a network of proteins (microfilament (7nm), itermediate filament (10nm), microtubule (25nm)) holding together nucleus, membrane, etc. 
 centrosome;                  organizes microtubules in one hub
+vesicle;                     bilayer bubble used for transport / combine with membrane
