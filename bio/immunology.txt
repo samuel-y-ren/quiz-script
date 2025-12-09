@@ -1,0 +1,11 @@
+word;def
+antigen; foreign substance in the body, such as surface proteins on a virus
+antibody; attacks antigen
+memory b cell; a cell which "knows" one specific antigen and antibody that activates with an antigen, typically with a helper t cell
+t cell-dependent activation; (TD) when a t cell carries around the antigen for the b cells to recognize. typically a stronger response
+t cell-independent activation; (TI) when the antigen alone activates the b cell, but slightly weaker
+b cell activation; the memory b cell differentiates into plasmablast (short-tßqerm) antibody cells, plasma (long term) antibody cells to maintain a low level of antigens, and more memory b cells
+t cell; type of immune response cell with a t cell receptor (TCR) for recognizing antigens
+helper t cell; brings antigens around memory b cells to activate
+killer t cell; destroy infected and tumor cells by monitoring surface cells
+memory t cell

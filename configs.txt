@@ -20,7 +20,7 @@ mit-mei=def
 inher=def
 repl=key-prop
 org=def
-prot=key-prop
+prot=def
 bio-misc=def
 
 [WEIGHTS]

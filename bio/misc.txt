@@ -16,7 +16,7 @@ hydrolysis;water molecule breaks ?-O bond into ?-OH + H-O... takes water to brea
 gdp/gtp;act as binary info (hydrolysis gtp -> gdp). gdp inactive, gtp active
 G protein-coupled receptros;a receptor recognizes a ligand then uses GTP to activate a G molecule to regulate process
 G protein;inactive G protein activated by an GTP causes Gα to disconnect, opening Gβ, Gγ.
-cAMP;derivative of ATP used for signaling
+cAMP;derivative of ATP used for signaling, cyclic adenosine monophosphate
 Ames test;uses bacteria unable to synthesize histidine, exposes a group to some possible carcinogen, then looks at whether there are many surviving colonies to assess mutation rate (compare to control), which is technically a mutagen, a subset of carcinogens
 oncogene;gene that has the potential to cause cancer through mutation or misregulation
 proto-oncogene;type of oncogene that promotes cell growth and division, becomes activated by overexpressed
